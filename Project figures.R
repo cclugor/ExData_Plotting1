@@ -32,3 +32,28 @@ lines(hhpc$Time_2,hhpc$Sub_metering_3,col="blue")
 axis.POSIXct(1,at=seq(daterange[1], daterange[2],by="day"),format="%A")
 legend("topright", legend=c("Sub metering 1", "Sub metering 2","Sub metering 3"),
        col=c("black", "red", "blue"), lty=5:1, cex=0.6)
+
+#### figure 4 ####
+
+par(mfrow=c(2,2))
+
+hist(hhpc$Global_active_power,col="red",main="",xlab = "Global Active Power (kilowatts)")
+
+
+plot(x = hhpc$Time_2, y=hhpc$Voltage,type="l",
+     xaxt='n',ylab="Voltage",xlab="datetime")
+axis.POSIXct(1,at=seq(daterange[1], daterange[2],by="day"),format="%A")
+
+
+plot(hhpc$Time_2,hhpc$Sub_metering_1,type="l",ylab="Energy Sub metering",
+     xaxt='n',xlab="")
+lines(hhpc$Time_2,hhpc$Sub_metering_2,col="red")
+lines(hhpc$Time_2,hhpc$Sub_metering_3,col="blue")
+axis.POSIXct(1,at=seq(daterange[1], daterange[2],by="day"),format="%A")
+
+
+
+plot(x = hhpc$Time_2, y=hhpc$Global_reactive_power,type="l",
+     xaxt='n',ylab="Global reactive power",xlab="datetime")
+axis.POSIXct(1,at=seq(daterange[1], daterange[2],by="day"),format="%A")
+
